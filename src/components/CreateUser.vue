@@ -1,6 +1,6 @@
 <template>
   <div class= "container">
-    <form @submit="onSubmit">
+    <form @submit="onSubmit" >
       <label><span >Login ID  </span>
         <input type="text" class="input" placeholder=" " v-model="data.form.login_ID"></label>
       <label><span >Name </span>
@@ -28,9 +28,9 @@
       <label for="hire_date">Hire Date
         <input id = "hire_date" type="date" class="input"  v-model="data.form.hire_date" ></label>
       <div></div>
-      <input type="submit" class="button is-info"  value="Save">
-      <input type="button" class="btn" @click="resetForm()" value="Clear Form">
+      <input type="submit" class="button is-info"  value="Save"  >
     </form>
+    <input type="button" class="btn" @click="resetForm()" value="Clear Form">
   </div>
 </template>
 
@@ -41,6 +41,7 @@ export default {
     return {
       data: {
         form: {
+          seen: true,
           login_ID: '',
           name: '',
           department: '',
