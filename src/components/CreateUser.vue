@@ -36,6 +36,8 @@
 
 <script>
 
+const validIDpattern = new RegExp('^[a-z][-a-z0-9._]*$')
+
 export default {
   data () {
     return {
@@ -58,12 +60,14 @@ export default {
         alert('ID must be 10 chars or less')
         return
       }
-
-      if (!this.data.form.name) {
+      if (!validIDpattern.test(this.data.form.login_ID)) {
+        alert('Only a-z0-9 allowed in ID field')
+        return
+      }
+      if (this.data.form.name) {
         alert('Name must be provided and must be 100 characters or less')
         return
       }
-
       if (!this.data.form.department) {
         alert('Please select a department')
         return
