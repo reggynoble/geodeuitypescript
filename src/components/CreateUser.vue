@@ -64,7 +64,7 @@ export default {
         alert('Only a-z0-9 allowed in ID field')
         return
       }
-      if (this.data.form.name) {
+      if (!this.data.form.name) {
         alert('Name must be provided and must be 100 characters or less')
         return
       }
