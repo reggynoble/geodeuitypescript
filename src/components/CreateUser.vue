@@ -72,6 +72,10 @@ export default {
         alert('Please enter a valid name character')
         return
       }
+      if (!this.data.form.department) {
+        alert('Department must be selected')
+        return
+      }
       if (this.data.form.login_ID & this.data.form.name & this.data.form.department) {
         alert('Form submitted Successfully')
         return
