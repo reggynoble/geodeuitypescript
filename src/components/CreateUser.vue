@@ -38,7 +38,6 @@
 
 const validIDpattern = new RegExp('^[a-z][-a-z0-9._]*$')
 const validNamepattern = new RegExp('^([a-zA-Z ]){2,30}$')
-
 export default {
   data () {
     return {
@@ -58,31 +57,23 @@ export default {
     onSubmit: function () {
       console.log('Make API request.')
       if (!this.data.form.login_ID) {
-        alert('Please provide an ID with 10 chars or less')
+        alert('ID must be 10 chars or less')
         return
       }
       if (!validIDpattern.test(this.data.form.login_ID)) {
         alert('Only a-z0-9 allowed in ID field')
         return
       }
-      if (this.data.form.login_ID.length > 10) {
-        alert('ID Must be 10 chars or less')
-        return
-      }
       if (!this.data.form.name) {
-        alert('Name Must be provided')
+        alert('Name must be provided and must be 100 characters or less')
         return
       }
       if (!validNamepattern.test(this.data.form.name)) {
         alert('Please enter a valid name character')
         return
       }
-      if (this.data.form.name.length > 100) {
-        alert('Name must be 100 chars or less')
-        return
-      }
-      if (!this.data.form.department) {
-        alert('Please select a department')
+      if (this.data.form.login_ID & this.data.form.name & this.data.form.department) {
+        alert('Form submitted Successfully')
         return
       }
       this.resetForm() // clear form automatically after successful request
@@ -90,7 +81,6 @@ export default {
     resetForm () {
       console.log('Reseting the form')
       var self = this // you need this because *this* will refer to Object.keys below`
-
       // Iterate through each object field, key is name of the object field`
       Object.keys(this.data.form).forEach(function (key, index) {
         self.data.form[key] = ''
@@ -101,90 +91,74 @@ export default {
 </script>
 <style scoped>
 @media screen and (min-width: 768px) {
-form {
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: space-between;
-align-content: space-evenly;
-}
-
-form input {
-width: 200px;
-box-sizing: border-box;
-padding: 10px 20px;
-float: right;
-}
-
-  input {
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-evenly;
+  }
+  form input {
     width: 200px;
     box-sizing: border-box;
     padding: 10px 20px;
     float: right;
   }
-
-form label {
-width: auto;
-box-sizing: border-box;
-align-content: space-evenly;
-justify-content: right;
-float: left;
-border-radius: 5px;
-}
-
-.container {
-max-width: 500px;
-margin: 30px auto;
-overflow: auto;
-min-height: 300px;
-border: 1px solid steelblue;
-padding: 30px;
-border-radius: 5px;
-}
-
-.btn {
-display: inline-block;
-background: #2c3e50;
-color: #fff;
-border: none;
-padding: 10px 20px;
-margin: 5px;
-border-radius: 5px;
-cursor: pointer;
-text-decoration: none;
-font-size: 15px;
-font-family: inherit;
-}
-
-.btn:focus {
-outline: none;
-}
-
-.btn:active {
-transform: scale(0.98);
-}
-
-.btn-block {
-display: block;
-width: 100%;
-}
-
-input {
-border: #2c3e50;
-outline: none;
-border-bottom: 1px solid #ddd;
-font-size: 1em;
-padding: 5px 0;
-margin: 10px 0 5px 0;
-width: 100%;
-}
-
-button {
-background-color: #3498db;
-padding: 10px 20px;
-margin-top: 10px;
-border: none;
-color: white;
-}
+  form label {
+    width: auto;
+    box-sizing: border-box;
+    align-content: space-evenly;
+    justify-content: right;
+    float: left;
+    border-radius: 5px;
+  }
+  .container {
+    max-width: 500px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 1px solid steelblue;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  .btn {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .btn:focus {
+    outline: none;
+  }
+  .btn:active {
+    transform: scale(0.98);
+  }
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+  input {
+    border: #2c3e50;
+    outline: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+    padding: 5px 0;
+    margin: 10px 0 5px 0;
+    width: 100%;
+  }
+  button {
+    background-color: #3498db;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+  }
 }
 </style>
