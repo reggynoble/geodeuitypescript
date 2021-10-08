@@ -57,7 +57,7 @@ export default {
     onSubmit: function () {
       console.log('Make API request.')
       if (!this.data.form.login_ID) {
-        alert('Please provide an with with 10 chars or less')
+        alert('Please provide an ID with with 10 chars or less')
         return
       }
       if (!validIDpattern.test(this.data.form.login_ID)) {
