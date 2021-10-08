@@ -65,12 +65,20 @@ export default {
         alert('Only a-z0-9 allowed in ID field')
         return
       }
+      if (this.data.form.login_ID.length > 10) {
+        alert('ID Must be 10 chars or less')
+        return
+      }
       if (!this.data.form.name) {
         alert('Name Must be provided')
         return
       }
       if (!validNamepattern.test(this.data.form.name)) {
-        alert('Please enter a valid name')
+        alert('Please enter a valid name character')
+        return
+      }
+      if (this.data.form.name.length > 100) {
+        alert('Name must be 100 chars or less')
         return
       }
       if (!this.data.form.department) {
