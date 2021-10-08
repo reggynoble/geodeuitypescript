@@ -37,6 +37,7 @@
 <script>
 
 const validIDpattern = new RegExp('^[a-z][-a-z0-9._]*$')
+const validNamepattern = new RegExp('^([a-zA-Z ]){2,30}$')
 
 export default {
   data () {
@@ -65,7 +66,11 @@ export default {
         return
       }
       if (!this.data.form.name) {
-        alert('Name must be provided and must be 100 characters or less')
+        alert('Name Must be provided')
+        return
+      }
+      if (!validNamepattern.test(this.data.form.name)) {
+        alert('Please enter a valid name')
         return
       }
       if (!this.data.form.department) {
