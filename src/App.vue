@@ -1,5 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/geodelogo-white.png">
+  <div id = title>Create User  </div>
   <CreateUser />
 </template>
 

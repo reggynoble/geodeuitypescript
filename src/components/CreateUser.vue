@@ -57,7 +57,7 @@ export default {
     onSubmit: function () {
       console.log('Make API request.')
       if (!this.data.form.login_ID) {
-        alert('ID must be 10 chars or less')
+        alert('Please provide an with with 10 chars or less')
         return
       }
       if (!validIDpattern.test(this.data.form.login_ID)) {
@@ -102,6 +102,14 @@ box-sizing: border-box;
 padding: 10px 20px;
 float: right;
 }
+
+  input {
+    width: 200px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    float: right;
+  }
+
 form label {
 width: auto;
 box-sizing: border-box;
